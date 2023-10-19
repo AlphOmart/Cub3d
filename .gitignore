@@ -4,5 +4,5 @@ a.out
 *.o
 .OBJS/
 .idea
-libft/.OBJS
-libft/*.a
+libft/.OBJS/
+libft/libft.a
