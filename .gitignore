@@ -6,3 +6,4 @@ a.out
 .idea
 libft/.OBJS/
 libft/libft.a
+*.a
