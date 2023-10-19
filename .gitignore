@@ -1,0 +1,8 @@
+a.out
+.vscode/launch.json
+.vscode/settings.json
+*.o
+.OBJS/
+.idea
+libft/.OBJS
+libft/*.a
