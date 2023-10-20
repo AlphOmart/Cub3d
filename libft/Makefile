@@ -23,6 +23,7 @@ SRC			=	src/ft_isalpha.c\
 				src/ft_isdigit.c\
 				src/ft_isalnum.c\
 				src/ft_isascii.c\
+				src/ft_isspace.c\
 				src/ft_isprint.c\
 				src/ft_strlen.c\
 				src/ft_memset.c\
