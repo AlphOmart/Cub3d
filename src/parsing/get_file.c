@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 16:34:07 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/10/20 17:30:04 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/01 07:50:39 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	get_file_size(size_t *file_size, char *path)
 	close(fd);
 }
 
-//TODO add while (42 || i++)
 void	get_file(char *path, char ***file)
 {
 	size_t	file_size;

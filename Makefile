@@ -13,7 +13,10 @@ LIBFT_NAME	=	libft.a
 LIBFT		=	$(addprefix $(LIBFT_PATH), $(LIBFT_NAME))
 #---MINISHELL_VAR----------------------------------
 SRC			=	src/main.c \
-				src/parsing/get_file.c
+				src/parsing/get_file.c \
+				src/parsing/data_init.c \
+				src/parsing/parse_data/parse_data.c \
+				src/parsing/parse_data/parse_textures.c
 OBJS_DIR	=	.OBJS/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.c=.o))
 HEADER_DIR	=	headers/
@@ -33,6 +36,7 @@ $(OBJS_DIR):
 				@mkdir -p $(OBJS_DIR)
 				@mkdir -p $(OBJS_DIR)src
 				@mkdir -p $(OBJS_DIR)src/parsing
+				@mkdir -p $(OBJS_DIR)src/parsing/parse_data
 
 all:			$(NAME)
 

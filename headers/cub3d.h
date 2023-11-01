@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 23:36:49 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/10/20 16:39:08 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/01 09:12:51 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,36 @@
 # define NOT_FILE "Invalid file ! (directory)"
 # define INV_PATH "Invalid path or file."
 ////////////////////////////////////////////////////////////////////////////////
+//////////                        STRUCTURES                          //////////
+////////////////////////////////////////////////////////////////////////////////
+typedef struct s_data
+{
+	char	*no;
+	char	*so;
+	char	*we;
+	char	*ea;
+
+	int		f[3];
+	int		c[3];
+
+	char	**map;
+
+	void	*element[6];
+}		t_data;
+////////////////////////////////////////////////////////////////////////////////
 //////////                        PROTOTYPES                          //////////
 ////////////////////////////////////////////////////////////////////////////////
 
+
 //--------------------------------get_file.c----------------------------------//
 void	get_file(char *path, char ***file);
-
+//-------------------------------data-init.c----------------------------------//
+void	data_init(t_data *data);
+//-------------------------------parse_data.c---------------------------------//
+void	parse_data(char ***file, t_data *data);
+char	*trim_end(char *string);
+//-----------------------------parse_textures.c-------------------------------//
+void	parse_textures(char **to_put, char *to_get);
+void	is_valid_path(char **path);
 void	ft_error(char *str, int err);
 #endif
