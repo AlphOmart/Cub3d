@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 23:35:29 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/11/04 14:44:13 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/04 15:08:11 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ int	main(int argc, char **argv)
 	printf("%s\n", data.we);
 	if (data.ea)
 		printf("%s\n", data.ea);
-
+	printf("f = %i, %i, %i\n", data.f[0], data.f[1], data.f[2]);
+	printf("c = %i, %i, %i\n", data.c[0], data.c[1], data.c[2]);
 
 
 	free(data.no);

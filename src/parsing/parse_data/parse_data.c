@@ -6,14 +6,14 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:59:43 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/11/01 09:30:00 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/04 15:01:55 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 void	get_info(char *str, t_data *data);
-void	get_colors(int *colors[3], char *to_get);
+void	get_colors(int colors[3], char *to_get);
 
 //TODO Normer cette fontion.
 void	parse_data(char ***file, t_data *data)
@@ -62,52 +62,49 @@ void	get_info(char *str, t_data *data)
 	{
 		if (i < 4 && !ft_strncmp(str, info[i], 2))
 			return (parse_textures(data->element[i],
-								   &str[2]), is_valid_path(data->element[i]));
-//		else if (4 <= i && !ft_strncmp(str, info[i], 1))
-//			return (get_colors(data->element[i], trim_end(&str[1])));
+								&str[2]), is_valid_path(data->element[i]));
+		else if (4 <= i && !ft_strncmp(str, info[i], 1))
+			return (get_colors(data->element[i], trim_end(&str[1])));
 	}
 }
 
-//size_t get_split_size(char **temp)
-//{
-//	size_t	i;
-//
-//	i = 0;
-//	while (temp[i])
-//	{
-//		i++;
-//	}
-//	return (i);
-//}
+size_t get_split_size(char **temp)
+{
+	size_t	i;
 
-//void	get_colors(int *colors[3], char *to_get)
-//{
-//	char	**temp;
-////	size_t	i;
-////
-////	i = 0;
-////	while (to_get[i] && ft_isspace(to_get[i]))
-////		i++;
-////	temp = ft_split(&to_get[i], ',');
-////	printf("%s\n", &to_get[i]);
-////	if (get_split_size(temp) != 3)
-////	{
-////		errno = 4;
-////		return ;
-////	}
-////	printf("%i\n", (*colors)[0]);
-////	i = 0;
-////	while (temp[i])
-////	{
-////		(*colors)[i] = ft_atoi(temp[i]);
-//////		printf("%i\n", (*colors)[i]);
-////		i++;
-////	}
-//	i = 0;
-//	while (temp[i] != NULL)
-//		free(temp[i++]);
-//	free(temp);
-//}
+	i = 0;
+	while (temp[i])
+	{
+		i++;
+	}
+	return (i);
+}
+
+void	get_colors(int colors[3], char *to_get)
+{
+	char	**temp;
+	size_t	i;
+
+	i = 0;
+	while (to_get[i] && ft_isspace(to_get[i]))
+		i++;
+	temp = ft_split(&to_get[i], ',');
+	if (get_split_size(temp) != 3)
+	{
+		errno = 4;
+		return ;
+	}
+	i = 0;
+	while (temp[i])
+	{
+		colors[i] = ft_atoi(temp[i]);
+		i++;
+	}
+	i = 0;
+	while (temp[i] != NULL)
+		free(temp[i++]);
+	free(temp);
+}
 
 char	*trim_end(char *string)
 {
