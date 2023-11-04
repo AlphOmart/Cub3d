@@ -63,51 +63,51 @@ void	get_info(char *str, t_data *data)
 		if (i < 4 && !ft_strncmp(str, info[i], 2))
 			return (parse_textures(data->element[i],
 								   &str[2]), is_valid_path(data->element[i]));
-		else if (4 <= i && !ft_strncmp(str, info[i], 1))
-			return (get_colors(data->element[i], trim_end(&str[1])));
+//		else if (4 <= i && !ft_strncmp(str, info[i], 1))
+//			return (get_colors(data->element[i], trim_end(&str[1])));
 	}
 }
 
-size_t get_split_size(char **temp)
-{
-	size_t	i;
-
-	i = 0;
-	while (temp[i])
-	{
-		i++;
-	}
-	return (i);
-}
-
-void	get_colors(int *colors[3], char *to_get)
-{
-	char	**temp;
-	size_t	i;
-
-	i = 0;
-	while (to_get[i] && ft_isspace(to_get[i]))
-		i++;
-	temp = ft_split(&to_get[i], ',');
-	printf("%s\n", &to_get[i]);
-	if (get_split_size(temp) != 3)
-	{
-		errno = 4;
-		return ;
-	}
-	printf("%i\n", (*colors)[0]);
+//size_t get_split_size(char **temp)
+//{
+//	size_t	i;
+//
 //	i = 0;
 //	while (temp[i])
 //	{
-//		(*colors)[i] = ft_atoi(temp[i]);
-////		printf("%i\n", (*colors)[i]);
 //		i++;
 //	}
-	i = 0;
-	while (temp[i] != NULL)
-		free(temp[i++]);
-	free(temp);
-}
+//	return (i);
+//}
+
+//void	get_colors(int *colors[3], char *to_get)
+//{
+//	char	**temp;
+////	size_t	i;
+////
+////	i = 0;
+////	while (to_get[i] && ft_isspace(to_get[i]))
+////		i++;
+////	temp = ft_split(&to_get[i], ',');
+////	printf("%s\n", &to_get[i]);
+////	if (get_split_size(temp) != 3)
+////	{
+////		errno = 4;
+////		return ;
+////	}
+////	printf("%i\n", (*colors)[0]);
+////	i = 0;
+////	while (temp[i])
+////	{
+////		(*colors)[i] = ft_atoi(temp[i]);
+//////		printf("%i\n", (*colors)[i]);
+////		i++;
+////	}
+//	i = 0;
+//	while (temp[i] != NULL)
+//		free(temp[i++]);
+//	free(temp);
+//}
 
 char	*trim_end(char *string)
 {

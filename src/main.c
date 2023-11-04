@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 23:35:29 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/11/04 13:52:39 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/04 14:44:13 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_error(char *str, int err)
 	exit(err);
 }
 
-
 int	main(int argc, char **argv)
 {
 	t_data	data;
@@ -40,6 +39,8 @@ int	main(int argc, char **argv)
 
 	get_file(argv[1], &file);
 	data_init(&data);
+	//fonctionne jusque la !
+
 	parse_data(&file, &data);
 	printf("%s\n", data.no);
 	printf("%s\n", data.so);
