@@ -6,12 +6,21 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 23:35:29 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/11/01 08:18:58 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/04 13:40:13 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+/**
+ * @brief This function is used to display an error message and
+ * 			exit the program gracefully by assigning "errno" to "err" and
+ * 			printing "str" to the standard error output.
+ * @param str string of characters to be displayed on the error output
+ * @param param2 Parameter that will be used to assign
+ * 				the program's exit value to errno.
+ * @return program exit with exit
+ */
 void	ft_error(char *str, int err)
 {
 	errno = err;
