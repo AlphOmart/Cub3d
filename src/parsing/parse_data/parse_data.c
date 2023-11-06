@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:59:43 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/11/06 20:05:29 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/06 20:43:42 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,26 @@ bool	bad_colors(int const f[3], int const c[3])
 	}
 	return (true);
 }
+/**
+ * @brief	Verify that all the elements of data have been parsed correctly.
+ * @param data Structure whose elements need to be parsed.
+ * @return If an error is found, the program returns false; otherwise,
+ *			it returns true.
+ */
+bool	bad_element(t_data *data)
+{
+	int	i;
 
+	i = -1;
+	while (++i < 3)
+	{
+		if (*(char **) data->element[i] == NULL)
+			return (false);
+	}
+	if (!bad_colors(data->element[4], data->element[5]))
+		return (false);
+	return (true);
+}
 /**
  * @brief check_data" checks all the elements of the structure passed as
  *			an argument. If an error is found, if the user-provided file
@@ -90,8 +109,8 @@ static void	check_data(char ***file, t_data *data)
 	size_t	i;
 
 	i = 0;
-	if (errno == 4 || !bad_colors(data->element[4], data->element[5])
-		|| (*file)[i] == NULL)
+
+	if (errno == 4 || !bad_element(data) || (*file)[i] == NULL)
 	{
 		i = -1;
 		while ((*file)[++i] != NULL)
@@ -101,7 +120,7 @@ static void	check_data(char ***file, t_data *data)
 			free((*file)[i]);
 		}
 		free(*file);
-		ft_error("ERROR file parse", errno);
+		ft_error(RED ERROR YELLOW INV_ELEMENT NC, errno);
 	}
 }
 
@@ -127,20 +146,4 @@ void	get_info(char *str, t_data *data)
 		else if (4 <= i && !ft_strncmp(str, info[i], 1))
 			return (get_colors(data->element[i], trim_end(&str[1])));
 	}
-}
-
-/**
- * @brief Removes all the whitespace from the string passed as a parameter.
- * @param **string String from which trailing whitespace needs to be removed.
- * @return Returns the trimmed string.
- */
-char	*trim_end(char *string)
-{
-	size_t	i;
-
-	i = ft_strlen(string);
-	while (i > 0 && !ft_isspace(string[i]))
-		i--;
-	string[i] = '\0';
-	return (string);
 }

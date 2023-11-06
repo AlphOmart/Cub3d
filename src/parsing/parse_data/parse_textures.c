@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:08:51 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/11/06 18:56:35 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/06 20:41:51 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,20 @@ void	is_valid_path(char **path)
 			errno = 4;
 		i++;
 	}
+}
+
+/**
+ * @brief Removes all the whitespace from the string passed as a parameter.
+ * @param **string String from which trailing whitespace needs to be removed.
+ * @return Returns the trimmed string.
+ */
+char	*trim_end(char *string)
+{
+	size_t	i;
+
+	i = ft_strlen(string);
+	while (i > 0 && !ft_isspace(string[i]))
+		i--;
+	string[i] = '\0';
+	return (string);
 }

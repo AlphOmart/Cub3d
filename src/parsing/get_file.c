@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 16:34:07 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/11/04 14:17:33 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/06 20:24:31 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	get_file(char *path, char ***file)
 	valid_path(path, &fd);
 	*file = malloc(sizeof(char *) * file_size);
 	if (!(*file))
-		ft_error("malloc failed\n", 4);
+		ft_error(RED ERROR YELLOW MALL_ERR"in get_file.c, line 44 "NC, 4);
 	i = 0;
 	while (42)
 	{
@@ -53,7 +53,7 @@ void	get_file(char *path, char ***file)
 		i++;
 	}
 	if (i != file_size - 1)
-		ft_error("weird things happen", 4);
+		ft_error(RED ERROR YELLOW FILE_READ_ERR NC, 4);
 }
 
 /**

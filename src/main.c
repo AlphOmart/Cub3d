@@ -42,6 +42,8 @@ int	main(int argc, char **argv)
 	//fonctionne jusque la !
 
 	parse_data(&file, &data);
+
+
 	printf("%s\n", data.no);
 	printf("%s\n", data.so);
 	printf("%s\n", data.we);
