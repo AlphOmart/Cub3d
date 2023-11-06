@@ -6,12 +6,22 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:08:51 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/11/01 09:09:36 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/06 18:50:45 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
+/**
+ * @brief This function retrieves the content of to_get (a string) and inserts
+ *		it into to_put (the address of a string), while removing any trailing
+ *		unwanted whitespace if present.
+ * @param **to_put The address where the trimmed variable should be stored
+ * 			for reuse.
+ * @param *to_get The variable that needs to be trimmed and stored in to_put.
+ * @return Once the variable is stored in to_put, the function stops, and to_put
+ *			will be reused later in the program.
+ */
 void	parse_textures(char **to_put, char *to_get)
 {
 	size_t	i;
@@ -23,6 +33,14 @@ void	parse_textures(char **to_put, char *to_get)
 		*to_put = ft_strjoin(*to_put, trim_end(&to_get[i]));
 }
 
+/**
+ * @brief The purpose of this function is to check if the path provided
+ *			as a parameter is valid for the proper functioning of the program.
+ * @param **path The address of the variable whose validity needs to be verified.
+ * @return The function assigns 4 to the errno variable if the parameter provided
+ *			is not valid. Otherwise, it leaves errno at its current value,
+ *			and the program continues.
+ */
 void	is_valid_path(char **path)
 {
 	size_t	i;

@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:59:43 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/11/04 15:01:55 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/05 00:04:56 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,13 @@ void	get_info(char *str, t_data *data)
 	}
 }
 
-size_t get_split_size(char **temp)
+size_t	get_split_size(char **temp)
 {
 	size_t	i;
 
 	i = 0;
 	while (temp[i])
-	{
 		i++;
-	}
 	return (i);
 }
 
