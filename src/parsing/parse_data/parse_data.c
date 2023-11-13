@@ -6,14 +6,14 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 14:59:43 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/11/06 20:43:42 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/13 14:08:46 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 static void	check_data(char ***file, t_data *data);
-static void	get_info(char *str, t_data *data);
+static void	get_info(char *str, t_data *data, char ***file, int n);
 
 /**
  * @briefChecks	This function is used to send the elements from file
@@ -42,7 +42,7 @@ void	parse_data(char ***file, t_data *data)
 				j++;
 			if ((*file)[i][j])
 			{
-				get_info(&(*file)[i][j], data);
+				get_info(&(*file)[i][j], data, file, i);
 				break ;
 			}
 		}
@@ -132,7 +132,7 @@ static void	check_data(char ***file, t_data *data)
  * @return "The function stops once the given element has been parsed
  *		or when no corresponding match has been found, and the program continues."
  */
-void	get_info(char *str, t_data *data)
+void	get_info(char *str, t_data *data, char ***file, int n)
 {
 	const char	*info[7] = {"NO ", "SO ", "WE ", "EA ", "F", "C", NULL};
 	size_t		i;
@@ -142,8 +142,8 @@ void	get_info(char *str, t_data *data)
 	{
 		if (i < 4 && !ft_strncmp(str, info[i], 2))
 			return (parse_textures(data->element[i], &str[2]),
-				is_valid_path(data->element[i]));
+				is_valid_path(data->element[i]), data->map = &(*file)[n], (void)NULL);
 		else if (4 <= i && !ft_strncmp(str, info[i], 1))
-			return (get_colors(data->element[i], trim_end(&str[1])));
+			return (get_colors(data->element[i], trim_end(&str[1])), data->map = &(*file)[n], (void)NULL);
 	}
 }

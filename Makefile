@@ -16,7 +16,8 @@ SRC			=	src/main.c \
 				src/parsing/get_file.c \
 				src/parsing/data_init.c \
 				src/parsing/parse_data/parse_data.c \
-				src/parsing/parse_data/parse_textures.c
+				src/parsing/parse_data/parse_textures.c \
+				src/parsing/parse_data/parse_colors.c
 OBJS_DIR	=	.OBJS/
 OBJS		=	$(addprefix $(OBJS_DIR), $(SRC:.c=.o))
 HEADER_DIR	=	headers/

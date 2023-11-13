@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 23:36:49 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/11/01 09:12:51 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/06 20:41:51 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@
 //////////                         INCLUDES                           //////////
 ////////////////////////////////////////////////////////////////////////////////
 # include "../libft/headers/libft.h"
-#include <stdio.h>
-#include <errno.h>
+# include <stdio.h>
+# include <errno.h>
+# include <stdbool.h>
 ////////////////////////////////////////////////////////////////////////////////
 //////////                         DEFINES                            //////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -33,6 +34,9 @@
 # define USAGE    "Usage : ./cub3D <path/map_file.cub> "
 # define NOT_FILE "Invalid file ! (directory)"
 # define INV_PATH "Invalid path or file."
+# define INV_ELEMENT "Invalid file (element in file)."
+# define MALL_ERR "malloc failed, "
+# define FILE_READ_ERR "Problem encountered during file reading"
 ////////////////////////////////////////////////////////////////////////////////
 //////////                        STRUCTURES                          //////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -54,16 +58,17 @@ typedef struct s_data
 //////////                        PROTOTYPES                          //////////
 ////////////////////////////////////////////////////////////////////////////////
 
-
+void	ft_error(char *str, int err);
 //--------------------------------get_file.c----------------------------------//
 void	get_file(char *path, char ***file);
 //-------------------------------data-init.c----------------------------------//
 void	data_init(t_data *data);
 //-------------------------------parse_data.c---------------------------------//
 void	parse_data(char ***file, t_data *data);
-char	*trim_end(char *string);
 //-----------------------------parse_textures.c-------------------------------//
 void	parse_textures(char **to_put, char *to_get);
 void	is_valid_path(char **path);
-void	ft_error(char *str, int err);
+char	*trim_end(char *string);
+//-----------------------------parse_colors.c-------------------------------//
+void	get_colors(int colors[3], char *to_get);
 #endif
