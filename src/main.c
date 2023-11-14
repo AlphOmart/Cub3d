@@ -6,7 +6,7 @@
 /*   By: mwubneh <mwubneh@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 23:35:29 by mwubneh           #+#    #+#             */
-/*   Updated: 2023/11/13 14:03:12 by mwubneh          ###   ########.fr       */
+/*   Updated: 2023/11/13 16:24:09 by mwubneh          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	main(int argc, char **argv)
 	//fonctionne jusque la !
 
 	parse_data(&file, &data);
-
 
 	printf("%s\n", data.no);
 	printf("%s\n", data.so);
